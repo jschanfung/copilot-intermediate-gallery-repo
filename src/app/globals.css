@@ -9,26 +9,45 @@
   --font-sans: var(--font-geist-sans);
 }
 
+/* Dark mode variables */
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* Fallback for system preference */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.dark):not(.light) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+/* Smooth theme transitions */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .page-gradient {
   min-height: 100vh;
   background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+  transition: background 0.3s ease;
 }
 
+:root.dark .page-gradient {
+  background: linear-gradient(to bottom right, #0f172a, #1e293b);
+}
+
+/* Fallback for system preference */
 @media (prefers-color-scheme: dark) {
-  .page-gradient {
+  :root:not(.light) .page-gradient {
     background: linear-gradient(to bottom right, #0f172a, #1e293b);
   }
 }
@@ -42,10 +61,15 @@ body {
   background-color: #ffffff;
   border-radius: 0.75rem;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+:root.dark .card-base {
+  background-color: #1e293b;
 }
 
 @media (prefers-color-scheme: dark) {
-  .card-base {
+  :root:not(.light) .card-base {
     background-color: #1e293b;
   }
 }
@@ -54,15 +78,19 @@ body {
   background-color: #ffffff;
   border-radius: 0.75rem;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.3s ease, box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-elevated:hover {
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
+:root.dark .card-elevated {
+  background-color: #1e293b;
+}
+
 @media (prefers-color-scheme: dark) {
-  .card-elevated {
+  :root:not(.light) .card-elevated {
     background-color: #1e293b;
   }
 }
@@ -72,10 +100,15 @@ body {
   padding: 2rem;
   border-radius: 0.75rem;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+:root.dark .card-feature {
+  background-color: #1e293b;
 }
 
 @media (prefers-color-scheme: dark) {
-  .card-feature {
+  :root:not(.light) .card-feature {
     background-color: #1e293b;
   }
 }
@@ -85,10 +118,15 @@ body {
   padding: 1.5rem;
   border-radius: 0.75rem;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+:root.dark .card-stats {
+  background-color: #1e293b;
 }
 
 @media (prefers-color-scheme: dark) {
-  .card-stats {
+  :root:not(.light) .card-stats {
     background-color: #1e293b;
   }
 }
@@ -444,15 +482,19 @@ body {
   background-color: #ffffff;
   border-radius: 0.75rem;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.3s ease, box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-card:hover {
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
+:root.dark .gallery-card {
+  background-color: #1e293b;
+}
+
 @media (prefers-color-scheme: dark) {
-  .gallery-card {
+  :root:not(.light) .gallery-card {
     background-color: #1e293b;
   }
 }
